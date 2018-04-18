@@ -7,16 +7,16 @@ Lưu ý: Một số lệnh trong bài viết này bao gồm một phần của l
 
 ##1. Git Auto Completion
 
-Nếu bạn chạy lệnh Git thông qua command line, đó là một nhiệm vụ mệt mỏi để gõ các lệnh bằng tay mỗi lần. Để giúp đỡ việc này, bạn có thể kích hoạt tự động hoàn thành các lệnh Git trong vòng vài phút.
+Nếu bạn chạy lệnh Git thông qua command line, nó là khá là mệt nếu nhập câu lệnh bằng tay mỗi lần. Để giải quyết vấn đề này, bạn có thể kích hoạt tự động hoàn thành các lệnh Git trong vòng vài phút.
 
-Để có được kịch bản, hãy chạy lệnh sau trong hệ thống Unix:
+Để có được kịch bản, hãy chạy lệnh sau trong hệ điều hành Unix:
 
 ```
 cd ~
 curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 ```
 
-Tiếp theo, thêm các dòng sau vào```~/.bash_profile``` file:
+Tiếp theo, thêm các dòng sau file ```~/.bash_profile``` của bạn:
 
 ```
 if [ -f ~/.git-completion.bash ]; then
@@ -28,7 +28,7 @@ Mặc dù tôi đã đề cập đến điều này trước đó, Tôi không t
 
 ##2. Loại bỏ các file trong Git 
 
-Bạn có mệt mỏi với các tập tin biên dịch (giống như ```.pyc```) xuất hiện trong kho Git của bạn? Hoặc bạn có chán đến mức bạn đã thêm chúng vào Git? Nhìn xa hơn, có một cách thông qua đó bạn có thể nói với Git để bỏ qua các tập tin nhất định và thư mục chung. Đơn giản chỉ cần tạo một tập tin có tên ```.gitignore``` và liệt kê các tệp tin và thư mục mà bạn không muốn Git theo dõi. Bạn có thể thực hiện ngoại lệ bằng cách sử dụng dấu chấm than (!).
+Bạn có mệt mỏi với các tập tin biên dịch (giống như ```.pyc```) xuất hiện trong kho Git của bạn? Hoặc bạn có chán đến mức bạn đã thêm chúng vào Git? Nhìn xa hơn, đây chính một cách qua đó bạn có thể nói với Git để chắc chắn sẽ bỏ qua các tệp và các thư mục hoàn toàn. Đơn giản chỉ cần tạo một tập tin có tên ```.gitignore``` và liệt kê các tệp tin và thư mục mà bạn không muốn Git theo dõi. Bạn có thể thực hiện ngoại lệ bằng cách sử dụng dấu chấm than (!).
 
 ```
 *.pyc
@@ -38,7 +38,7 @@ my_db_config/
 !main.pyc
 ```
 
-##3. Who Messed With My Code?
+##3. Ai đã làm rối code của tôi ?
 
 Đó là bản năng tự nhiên của con người để đổ lỗi cho người khác khi có điều gì đó không ổn. Nếu máy chủ sản xuất của bạn bị hỏng, rất dễ để tìm ra thủ phạm - chỉ cần thực hiện ```git blame```.Câu lệnh này sẽ cho bạn thấy tác giả của mỗi dòng trong 1 file, commit thực hiện thay đổi cuối cùng của dòng đó, và mốc thời gian của commit. 
 
@@ -95,7 +95,7 @@ git add -p [file_name]
 
 ```
 
-Chúng ta hãy cùng xem mô tả tương tự. Tôi đã thêm ba dòng mới vào ```file_name``` và tôi chỉ muốn những dòng đầu tiên và thứ ba xuất hiện trong commit của tôi.Chúng ta hãy cùng xem ```git diff``` cho chúng ta thấy.
+Chúng ta hãy cùng nhau chứng minh điều đó. Tôi đã thêm ba dòng mới vào ```file_name``` và tôi chỉ muốn những dòng đầu tiên và thứ ba xuất hiện trong commit của tôi.Chúng ta hãy cùng xem ```git diff``` cho chúng ta thấy.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946449git-ninja-06.png)
 
@@ -147,7 +147,7 @@ Sau đó bạn được yêu cầu cung cấp thông báo commit cho commit mớ
 
 ##8. Stash Uncommitted Changes
 
-Hãy nói rằng bạn đang làm việc với một lỗi nhất định và một tính năng, và bạn đột nhiên được yêu cầu mô tả công việc của bạn. Công việc hiện tại chưa đủ hoàn thành commit, 
+Giả sử bạn đang làm việc với một lỗi nhất định và một tính năng, và bạn đột nhiên được yêu cầu mô tả công việc của bạn. Công việc hiện tại chưa đủ hoàn thành commit, 
 và bạn không thể đưa ra một mô tả ở giai đoạn này (mà không cần trở lại các thay đổi). Trong trường hợp như vậy, ```git stash``` nó sẽ giải cứu bạn. Stash cơ bản thực hiện tất cả các thay đổi của bạn và lưu giữ chúng để sử dụng tiếp.
  Để giấu các thay đổi của bạn, bạn chỉ cần chạy-
 
